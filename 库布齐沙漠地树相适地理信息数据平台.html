@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<!--[if lt IE 6 ]><html class="ie6" lang="zh-cn"><![endif]-->
+<!--[if IE 7 ]><html class="ie7" lang="zh-cn"><![endif]-->
+<!--[if IE 8 ]><html class="ie8" lang="zh-cn"><![endif]-->
+<!--[if IE 9 ]><html class="ie9" lang="zh-cn"><![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--><html class="" lang="zh-cn"><!--<![endif]-->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>库布齐沙漠地树相适地理信息数据平台</title>
+    <link href="./ol.css" rel="stylesheet" type="text/css">
+    <script src="./ol.js" type="text/javascript"></script>
+    <style>
+        *{margin: 0px;padding: 0;}
+        li{list-style: none;}
+        a{text-decoration: none;color: #b7f0d1;}
+        img{vertical-align: middle;
+            max-width: 100%;
+	      height: auto;
+	      width: auto\9; /* ie8 */
+      }
+        #content {
+            width: 220px 100%;
+            background-color: #0ebfdd;
+        }
+        #content .title {
+            width:220px ;
+            height:50px;
+            background:#0467fc;
+            color:white;
+            font-size: 17px;
+            font-weight: 500;
+            line-height: 50px;
+            text-indent: 15px;
+        }
+    #content ul li {
+      width:220px;
+      height:70px;
+      background:#483f99;
+      border-bottom:1px solid white; 
+}
+    #content ul li h3 {
+      font-size:16px;
+      font-weight: 400;
+      line-height: 40px;
+      text-indent: 15px;
+      color:white;
+}
+      #content ul li p {
+      font-size: 14px;
+      text-indent: 15px;
+      
+}
+      #content ul li:hover {
+      background:#7ba0b3;
+}
+      #content ul li p :hover {
+      text-decoration: underline;
+}
+      #content .menu {
+         position:absolute !important;
+         left:220px;
+         top:155px;
+         display: none;
+         border: 1px solid black;
+    
+}
+      #content ul li:hover .menu{
+      display:block ;
+}
+      #map{
+            width: 1162px 100%;
+            height: 547px;
+            margin-left: 220px;
+        }
+        #bottomtitle {
+              width: 1310px 100%;
+              height: 60px;
+             
+        }
+        #bottomcontent {
+               width:1310px 100%;
+               height: 530px;
+               background-repeat: no-repeat;
+               border-bottom: 1px solid black;
+               border-top: 3px solid green;
+               background-position: center;
+               background: #f7f5f5e1;   
+        }
+       #bottomcontent .title {
+             width:100% ;
+             height: 180px;
+       }
+       #bottomcontent .matter {
+            width:100%;
+       }
+       #bottomcontent ul {
+             width: 100%;
+              margin-left: 155px;
+       }
+       #bottomcontent ul li{
+           width:531px;
+           height: 173px;
+           float: left;   
+       }
+          #bottomcontent ul li h3 {
+            font-size:20px;
+            font-weight: 600;
+            line-height: 40px;
+            text-indent:30px;   
+            font-family: STSong;
+          }
+      .go{width:45px;height:106px;background-color:#FFF;position:fixed;_position:absolute;right:12px;bottom:25%;border-radius:5px;box-shadow:0 0 2px #6E6E6E}
+      .go a{background:url("C:/Users/Administrator/Desktop/Hobqi desert/images/a.png") no-repeat;display:block;text-indent:999em;line-height:999px;width:37px;margin:5px;border:0;overflow:hidden;float:left}
+      .go .top{background-position:0 -33px;height:22px}
+      .go .feedback{background-position:0 -54px;height:32px}
+      .go .bottom{background-position:0 -88px;height:22px}
+      .go .top:hover{background-position:-38px -33px}
+      .go .feedback:hover{background-position:-38px -54px}
+      .go .bottom:hover{background-position:-38px -88px} 
+    </style>
+     </head>
+ <body>
+      <a name="gotop"></a>
+      <a name="gobottom"></a>
+      <div class="go" >
+            <a title="返回顶部" class="top" href="#gotop">至顶</a>
+            <a title="如果您有意见,请反馈给我们! "class="feedback" href="#" >反馈</a>
+            <a title="返回底部" class="bottom" href="#gobottom">至底</a>
+      </div>
+    <table id="headtop" style="height:70px;display: table;background-color: #385c63;" cellpadding="0px" cellspacing="0px" border="0px" width="100%">
+        <tbody>
+           <tr>
+              <td align="left" width="30%"> 
+                 <div>
+                     <img src="C:\Users\Administrator\Desktop\Hobqi desert\images\desert.png" width="100%" height="70px">
+                 </div>
+              </td>
+           </tr>
+        </tbody>
+</table>
+   <table id="headbottom" style="height: 30px; border-top: 1px solid #0ebfdd;border-bottom: 1px solid #0ebfdd;background-color:#f5f4f4"cellpadding="0";cellspacing="0";border="0px" width="100%">
+      <tbody>
+          <tr>
+              <td align="left" width="30%">
+                  <div style="text-indent: 20px;font-size: 14px;">您好,欢迎来到库布齐沙漠地树相适地理信息数据平台!</div>
+              </td>
+              <td>
+               <div style="float:right;padding-right: 30px;border: 1px;">
+                  <div style="float: right;">
+                        <input id="dm" style="width:200px;height: 20px;" type="text" placeholder="搜经纬度,查立地类型" name="dm">
+                        <input  id="dmdcx" style="width:40px;height: 25px;" type="button" value="搜索" name="dmdcx">
+                  </div>
+              </td>
+          </tr>
+      </tbody>
+   </table>
+   <div id="map" class="map" style="position: absolute;width:84%"></div>
+    <div id="content" style="float: left;">
+    <div class="title">
+          <img src="C:\Users\Administrator\Desktop\Hobqi desert\images\menu-title.png" width="17" height="14">
+           低覆盖度造林配置模式
+      </div>
+    <ul>
+        <li>
+              <h3>低覆盖度治沙体系应用原则</h3>
+              <p>
+                    <a href="#">模式分类</a>
+                    <a href="#">适宜树种</a>
+                    <a href="#">带间距</a>
+              </p>
+              <div class="menu">
+              <img src="C:\Users\Administrator\Desktop\Hobqi desert\images\p00.png" width="598" height="494"> 
+              </div>
+        </li>
+        <li>
+              <h3>"单行一带"</h3>
+              <p>
+                    <a href="#">外业展示</a>
+                    <a href="#">适用范围</a>
+                    <a href="#">配置模式</a>
+              </p>
+              <div class="menu">
+                    <img src="C:\Users\Administrator\Desktop\Hobqi desert\images\p11.png" width="598" height="494"> 
+                    </div>
+        </li>
+        <li>
+              <h3>"两行一带"</h3>
+              <p>
+                    <a href="#">外业展示</a>
+                    <a href="#">适用范围</a>
+                    <a href="#">配置模式</a>
+              </p>
+              <div class="menu">
+                    <img src="C:\Users\Administrator\Desktop\Hobqi desert\images\p22.png" width="598" height="494"> 
+                    </div>
+        </li>
+        <li>
+              <h3>"多行一带"</h3>
+              <p>
+                    <a href="#">外业展示</a>
+                    <a href="#">适用范围</a>
+                    <a href="#">配置模式</a>
+              </p>
+              <div class="menu">
+                    <img src="C:\Users\Administrator\Desktop\Hobqi desert\images\p33.png" width="598" height="494"> 
+                    </div>
+        </li>
+        <li>
+              <h3>网格模式</h3>
+              <p>
+                    <a href="#">外业展示</a>
+                    <a href="#">适用范围</a>
+                    <a href="#">配置模式</a>
+              </p>
+              <div class="menu">
+                    <img src="C:\Users\Administrator\Desktop\Hobqi desert\images\p44.png" width="598" height="494"> 
+                    </div>
+        </li>
+        <li>
+              <h3>生态林业模式</h3>
+              <p>
+                    <a href="#">外业展示</a>
+                    <a href="#">适用范围</a>
+                    <a href="#">配置模式</a>
+              </p>
+              <div class="menu">
+                  <img src="C:\Users\Administrator\Desktop\Hobqi desert\images\p55.png" width="598" height="494">
+                  </div>
+        </li>
+        <li>
+              <h3>羽翼袋沙障</h3>
+              <p>
+                    <a href="#">外业展示</a>
+                    <a href="#">适用范围</a>
+                    <a href="#">配置模式</a>
+              </p>
+              <div class="menu">
+                    <img src="C:\Users\Administrator\Desktop\Hobqi desert\images\p66.png" width="598" height="494"> 
+                   </div>
+        </li>
+  </ul>
+    </div>
+    <script src="./content.js"></script>
+    <input id="swipe" type="range" style="width:100%;">
+    <div id="mouse-position" style="font-size:18px;font-family: 'Times New Roman', Times, serif;position:relative;overflow: hidden;"></div>
+    <div id="bottomtitle">
+            <h2 style="text-align: center;font-family:STZhongsong;font-weight: 1000;font-size: 30px;">低覆盖度治沙理论
+            <p style="text-align: center;font-size: 15px;color: red;">中国治沙新技术</p>
+            </h2>
+      </div>
+      <div id="bottomcontent">
+            <div class="title">
+                  <p style="font-size: 17px;font-family:Microsoft Yahei;font-weight: 500;text-indent: 20px;line-height: 30px;width: 90%;margin: 0 auto;">低覆盖度治沙理论包含了风沙物理学、水文学、生态学、可持续发展等的内容，是一种创新性复合技术理论，打破了固有思维，在防沙治沙理论与技术研究方面取得了极大突破，开创了植被在低覆盖度(15%-25%)
+                  下实现防沙治沙目标的新领域；其是以疏林或稀疏灌丛植被格局的演变为内涵，外延出优化格局的风沙物理和生态水文原理与过程，组合了林学的边行优势与生态学界面效益理论，形成一套人工治理与自然修复有机结合的生态修复理论；其结果是建成乔、灌、草复层结构，多树种水平混交的稳定性强的植被。低覆盖度治沙显著提高了稀疏植被
+                  的阻风固沙和水分利用效率，提出了极端干旱区、干旱区和半干旱区的控制密度和基本原则,成为了2015年《国家造林技术规程》(旱区部分)重要修订内容。同时，低覆盖度治沙理论基本解决了中幼林衰败死亡问题，显著提高了水分利用效率、降低了造林成本。
+            </p>
+            </div>
+            <div class="matter">
+                  <ul>
+                        <li>
+                               <div class="picture" style="float: left;">
+                              <img src="C:\Users\Administrator\Desktop\Hobqi desert\images\forest.png" width="48" height="48"> 
+                               </div>
+                            <span style="line-height: 48px;font-size: 20px;font-family:STSong;font-weight: 600;">
+                              植被格局理论</span>
+                              <p style="text-indent: 20px;font-size:15px;line-height: 25px;">以防风固沙，修复退化土地为目标，从提高水分利用效率、植被稳定性<br>和加快修复速度出发，按照当地自然林地的覆盖度，营造固沙林(植树占地15%-25%，空留75%-85%土地为自然修复带)，在完全固定流沙的条件下，<br>形成能够促进土壤与植被、微生物快速修复的乔灌草复层植物结构，构成<br>低覆盖度防沙治沙体系。</p>
+                        </li>
+                        <li>
+                              <div class="picture" style="float: left;">
+                                    <img src="C:\Users\Administrator\Desktop\Hobqi desert\images\sand.png" width="48" height="48"> 
+                                     </div>
+                                  <span style="line-height: 48px;font-size: 20px;font-family: STSong;font-weight: 600;">
+                                    风沙物理学理论</span>
+                                    <p style="text-indent: 20px;font-size:15px;line-height: 25px;">
+                                     在带后2H-3H处、下一带带前2H处出现一个风速显著降低区，而在两个带间的中央地带出现一个风速微弱降低区，出现“凹月”型沙面，对于带间距较宽的模式带间能够出现多个风速显著降低区和风速微弱降低区，进而形成随林带而破浪变化的流场特征，连续的行带式分布对风速的阻碍和降低表现出明显的累加作用。
+                                    </p>
+
+                        </li>
+                        <li>
+                              <div class="picture" style="float: left;">
+                                    <img src="C:\Users\Administrator\Desktop\Hobqi desert\images\water.png" width="51" height="51"> 
+                                     </div>
+                                  <span style="line-height: 51px;font-size: 20px;font-family: STSong;font-weight: 600;">
+                                    水文学理论</span>
+                                    <p style="text-indent: 20px;font-size:15px;line-height: 25px;">
+                                    边行向外侧形成由低到高的含水量梯度，一直延伸到土壤含水量稳定不<br>变的地段，明显地出现土壤水分主要利用带及外侧的高含水率土壤水分渗<br>漏补给带；前者成为林分形成边行优势的重要水分条件。而后者确保有降<br>水渗漏补给深层或地下水，确保地下水处于动态平衡。
+                                    </p>
+                        </li>
+                        <li>
+                              <div class="picture" style="float: left;">
+                                    <img src="C:\Users\Administrator\Desktop\Hobqi desert\images\compsite.png" width="51" height="51"> 
+                                     </div>
+                                  <span style="line-height: 51px;font-size: 20px;font-family: STSong;font-weight: 600;">
+                                    复合理论</span>
+                                    <p style="text-indent: 20px;font-size:15px;line-height: 25px;">
+                                    宽带间距固沙林起到沙障的作用，确保自然植被定居；疏林形成的林间气候又促进带间自然植被快速修复和土壤形成，而植被生长又为林带提供养分和水分补给。适宜的带宽和配制格局将使固沙林充分发挥长效沙障作用，充分发挥边行优势和界面效益，在固沙林达到生理寿命之前，形成稳定持续的原始植被。
+                                    </p>
+                        </li>
+                  </ul>
+            </div>
+    </div>
+</body>
+
+</html>
